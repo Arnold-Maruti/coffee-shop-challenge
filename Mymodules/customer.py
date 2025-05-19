@@ -16,6 +16,10 @@ class Customer:
     def coffees (self):
         from Mymodules import order as requests
         return [coff.coffee.name for coff in requests.Order.all_orders if self.name==coff.customer.name]
+    
+    def create_order(self,coffee,price):
+        from Mymodules import order as requests
+        return requests.Order(self.name,coffee,price)
         
         
 
@@ -32,7 +36,9 @@ class Customer:
             raise ValueError("Name must be between 1-15 characters")
         
 
-pablo=Customer("pablo")
+pablo=Customer("diallo")
+print(pablo.create_order("double",7.8))
+
 
 
 

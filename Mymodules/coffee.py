@@ -23,6 +23,16 @@ class Coffee:
             mean=sum(new_list)/len(new_list)
 
         return mean
+    
+
+
+    def num_orders(self):
+        from Mymodules import order as requests
+        new_lists=[coff for coff in requests.Order.all_orders if self.name==coff.coffee.name]
+        return len(new_lists)
+    
+  
+
 
 
     @property
@@ -37,5 +47,4 @@ class Coffee:
         else:
             print("Name must be  3 characters or more")
 
-doubles=Coffee("doubles")
-print(doubles.average_price())
+doubles=Coffee("double")
