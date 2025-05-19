@@ -30,12 +30,14 @@ class Order:
     
     @price.setter
     def price (self,price):
-        if isinstance(price,float) and 1.0<=price>=10.0:
+        if isinstance(price,float) and 1.0<=price<=10.0:
             self._price=price
+        else:
+            raise ValueError("price is not within range")
         
    
 
 left=Order("pablo","double",3.2)
-right=Order("pablo","doubles",5.2)
-center=Order("alice","doubles",5.4)
+right=Order("pablo","double",5.2)
+center=Order("alice","double",5.4)
 

@@ -16,8 +16,13 @@ class Coffee:
     
     def average_price(self):
         from Mymodules import order as requests
-        new_list=[coff.price.name for coff in requests.Order.all_orders if self.name==coff.coffee.name]
-        return new_list
+        new_list=[coff.price for coff in requests.Order.all_orders if self.name==coff.coffee.name]
+        if sum(new_list)==0:
+            mean=0
+        else:
+            mean=sum(new_list)/len(new_list)
+
+        return mean
 
 
     @property
