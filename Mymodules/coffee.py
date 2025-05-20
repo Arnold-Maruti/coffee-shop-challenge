@@ -47,4 +47,5 @@ class Coffee:
         else:
             print("Name must be  3 characters or more")
 
-doubles=Coffee("double")
+# doubles=Coffee("double")
+# double=Coffee("doubles")

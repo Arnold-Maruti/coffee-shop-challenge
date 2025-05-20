@@ -37,9 +37,9 @@ class Order:
         
    
 
-left=Order("pablo","double",3.2)
-right=Order("pablo","double",5.2)
-center=Order("alice","double",5.4)
+# left=Order("pablo","double",3.2)
+# right=Order("pablo","double",5.4)
+# center=Order("alice","double",5.7)
 
 
 

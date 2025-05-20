@@ -52,8 +52,8 @@ class Customer:
 
 
 
-pablo=Customer("diallo")
-print(Customer.most_aficionado("double"))
+# pablo=Customer("diallo")
+# print(Customer.most_aficionado("double"))
 
 
 
