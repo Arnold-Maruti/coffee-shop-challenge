@@ -1,6 +1,9 @@
 class Coffee:
     def __init__(self,name):
-        self.name=name
+        if isinstance(name,str) and len(name)>=3:
+            self._name=name
+        else:
+            print("Name must be  3 characters or more")
 
 
     def __repr__(self):
@@ -41,11 +44,9 @@ class Coffee:
     
 
     @name.setter
-    def name(self,name):
-        if isinstance(name,str) and len(name)>=3:
-            self._name=name
-        else:
-            print("Name must be  3 characters or more")
+    def name(self,_):
+                raise AttributeError("Coffee name is immutable and cannot be changed.")
+
 
 # doubles=Coffee("double")
 # double=Coffee("doubles")

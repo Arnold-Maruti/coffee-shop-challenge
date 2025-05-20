@@ -13,7 +13,13 @@ class Order:
 
         self.customer=client.Customer(customer)
         self.coffee=drink.Coffee(coffee)
-        self.price=price
+        
+        if isinstance(price,float) and 1.0<=price<=10.0:
+            self._price=price
+        else:
+            raise ValueError("price is not within range")
+
+
         
         Order.all_orders.append(self)
         Order.all_coffees.append(self.coffee)
@@ -29,11 +35,9 @@ class Order:
         return self._price
     
     @price.setter
-    def price (self,price):
-        if isinstance(price,float) and 1.0<=price<=10.0:
-            self._price=price
-        else:
-            raise ValueError("price is not within range")
+    def price (self,_):
+        raise AttributeError("Coffee name is immutable and cannot be changed.")
+
         
    
 
