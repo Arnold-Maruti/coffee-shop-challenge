@@ -11,15 +11,15 @@ class Customer:
 
     def orders(self):
         from Mymodules import order as requests
-        return [request for request in requests.Order.all_orders if request.customer==self.name]
+        return [request for request in requests.Order.all_orders if request._customer==self]
     
     def coffees (self):
         from Mymodules import order as requests
-        return [coff.coffee.name for coff in requests.Order.all_orders if self.name==coff.customer.name]
+        return [coff._coffee for coff in requests.Order.all_orders if coff._customer==self]
     
     def create_order(self,coffee,price):
         from Mymodules import order as requests
-        return requests.Order(self.name,coffee,price)
+        return requests.Order(self,coffee,price)
         
         
 
@@ -39,12 +39,12 @@ class Customer:
     @classmethod
     def most_aficionado(cls,coffee):
         from Mymodules import order as requests
-        listings=[request.price for request in requests.Order.all_orders if request.coffee==coffee]
+        listings=[request._price for request in requests.Order.all_orders if request._coffee==coffee]
         if listings==[]:
             max_name="None"
         else:
             max_value=max(listings)
-            max_name=[ request.customer for request in requests.Order.all_orders if request.price==max_value]
+            max_name=[ request._customer for request in requests.Order.all_orders if request._price==max_value and request._coffee==coffee]
 
         return max_name
     
