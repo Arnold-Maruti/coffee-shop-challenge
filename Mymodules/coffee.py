@@ -48,5 +48,4 @@ class Coffee:
                 raise AttributeError("Coffee name is immutable and cannot be changed.")
 
 
-# doubles=Coffee("double")
-# double=Coffee("doubles")
+

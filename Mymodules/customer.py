@@ -6,12 +6,12 @@ class Customer:
         self.name=name
 
     def __repr__(self):
-        return f"{self.name}"
+         return f"{self.name}"
 
 
     def orders(self):
         from Mymodules import order as requests
-        return [request for request in requests.Order.all_orders if request.customer.name==self.name]
+        return [request for request in requests.Order.all_orders if request.customer==self.name]
     
     def coffees (self):
         from Mymodules import order as requests
@@ -39,12 +39,12 @@ class Customer:
     @classmethod
     def most_aficionado(cls,coffee):
         from Mymodules import order as requests
-        listings=[request.price for request in requests.Order.all_orders if request.coffee.name==coffee]
+        listings=[request.price for request in requests.Order.all_orders if request.coffee==coffee]
         if listings==[]:
             max_name="None"
         else:
             max_value=max(listings)
-            max_name=[ request.customer.name for request in requests.Order.all_orders if request.price==max_value]
+            max_name=[ request.customer for request in requests.Order.all_orders if request.price==max_value]
 
         return max_name
     
@@ -52,8 +52,7 @@ class Customer:
 
 
 
-# pablo=Customer("diallo")
-# print(Customer.most_aficionado("double"))
+
 
 
 
